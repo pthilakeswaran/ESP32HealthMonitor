@@ -29,7 +29,7 @@ OLED_Disp Task-Displays temperature, uptime, and system status on the OLED.
 
 led_Update Task-Adjusts LED blinking rate based on temperature conditions.
 
-Watchdog_uptime Task	-esets the watchdog timer and tracks system uptime.
+Watchdog_uptime Task-resets the watchdog timer and tracks system uptime.
 
 **Hardware Used**
 
