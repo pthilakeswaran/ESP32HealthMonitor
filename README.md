@@ -1,38 +1,48 @@
-ESP32 Health Monitor
+**ESP32 Health Monitor**
 
-**This project monitors the ESP32’s internal temperature, displays system information on an OLED, blinks an LED based on temperature levels, and uses a watchdog timer for crash recovery.
-It’s built using FreeRTOS tasks for real-time multitasking.**
 
-Features
+This project continuously tracks the ESP32’s internal temperature, displays vital stats on an OLED, and provides LED-based visual alerts. A watchdog timer ensures automatic recovery from crashes or overheating.**
 
-Reads internal ESP32 temperature sensor.
-Displays temperature, uptime, and system status on a 128x64 OLED.
+**Features**
 
-LED Alerts:
+Internal Temperature Monitoring – Reads the ESP32’s onboard temperature sensor.
 
-1)Critical – Fast blinking
-2)Warning – Slow blinking
-3)Normal – Off
+OLED Display (128x64) – Shows temperature, uptime, and system status in real time.
 
-Watchdog Timer: Automatically resets the ESP32 on system freeze or overheating.
+**LED Alerts** (GPIO 26):
 
-Built using FreeRTOS for smooth multitasking.
+1)Critical – Fast blinking (Overheating detected)
 
-Hardware Used
+2) Warning – Slow blinking (Elevated temperature)
 
-1)ESP32 development board
-2)SSD1306 128x64 OLED (I2C)
-3)LED + 220Ω resistor (connected to GPIO 26)
+3) Normal – LED off (Temperature stable)
 
-Libraries Required
+Watchdog Timer – Resets the ESP32 automatically during system freeze or overheat.
 
-1)U8g2-For OLED
-2)Wire (I2C communication)
-3)esp_task_wdt (Watchdog, part of ESP32 Arduino core)
+FreeRTOS Multitasking – Separate tasks handle sensor reading, display, LED alerts, and watchdog operations smoothly.
 
-How It Works
+**How It Works**
 
-TempMonitor Task: Reads internal temperature and updates system status.
-OLED_Disp Task: Displays readings and uptime on OLED.
-led_Update Task: Changes LED blinking speed based on temperature level.
-Watchdog_uptime Task: Resets watchdog and tracks system uptime.
+TempMonitor Task-Reads internal temperature and updates system status.
+
+OLED_Disp Task-Displays temperature, uptime, and system status on the OLED.
+
+led_Update Task-Adjusts LED blinking rate based on temperature conditions.
+
+Watchdog_uptime Task	-esets the watchdog timer and tracks system uptime.
+
+**Hardware Used**
+
+ESP32 Development Board
+
+SSD1306 OLED Display (128x64, I2C)
+
+LED + 220Ω Resistor (connected to GPIO 26)
+
+**Libraries Required**
+
+U8g2 – OLED display handling
+
+Wire – I²C communication
+
+esp_task_wdt – Watchdog timer
