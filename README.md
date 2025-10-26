@@ -11,7 +11,7 @@ OLED Display (128x64) – Shows temperature, uptime, and system status in real t
 
 **LED Alerts** (GPIO 26):
 
-1)Critical – Fast blinking (Overheating detected)
+1) Critical – Fast blinking (Overheating detected)
 
 2) Warning – Slow blinking (Elevated temperature)
 
